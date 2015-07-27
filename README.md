@@ -6,7 +6,7 @@ This utilizes the OMDb (Open Movie Database) API to get movie information based 
 
 ## Usage
 
-To use run `entertainment_center.py`.
+To generate and open `fresh_tomatoes.html`, run `entertainment_center.py`.
 
 ### Adding movies
 
