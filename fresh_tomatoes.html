@@ -1,0 +1,335 @@
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link href='http://fonts.googleapis.com/css?family=Lobster|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            color: #000;
+        }
+        .info {
+            text-align: left;
+        }
+
+        .data {
+            margin-top: -20px;
+        }
+        .right {
+            text-align: right;
+        }
+        .right h1 {
+            font-size: 5em;
+            font-weight: 700;
+            font-family: 'Lobster', cursive;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        .navbar-brand {
+            font-family: 'Lobster', cursive;
+        }
+        @media screen and (max-width: 768px) {
+            .movie-tile {
+                text-align: center;
+            }
+            .right {
+                text-align: center;
+            }
+            .data {
+                margin-top: 0px;
+            }
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Top 10 Movies Nate Usher Would Watch Right Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+
+<div class="movie-tile row" data-trailer-youtube-id="cd-go0oBF4Y" data-toggle="modal" data-target="#trailer">
+    <div class = "col-sm-1 right">
+        <h1>#1</h1>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">    
+        <img src="http://ia.media-imdb.com/images/M/MV5BMTQ0NjUzMDMyOF5BMl5BanBnXkFtZTgwODA1OTU0MDE@._V1_SX300.jpg" width="220" height="342">
+    </div>
+    <div class="col-sm-6 data">
+        <h2>The Big Lebowski</h2>
+        <h4>1998</h4>
+        <div class = "info">
+            <p><b>Director: </b>Joel Coen, Ethan Coen</p>
+            <p><b>Starring: </b>Jeff Bridges, John Goodman, Julianne Moore, Steve Buscemi</p>
+            <p><b>Synopsis: </b>When "The Dude" Lebowski is mistaken for a millionaire Lebowski, two thugs urinate on his rug to coerce him into paying a debt he knows nothing about. While attempting to gain recompense for the ruined rug from his wealthy counterpart, he accepts a one-time job with high pay-off. He enlists the help of his bowling buddy, Walter, a gun-toting Jewish-convert with anger issues. Deception leads to more trouble, and it soon seems that everyone from porn empire tycoons to nihilists want something from The Dude.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="movie-tile row" data-trailer-youtube-id="6hB3S9bIaco" data-toggle="modal" data-target="#trailer">
+    <div class = "col-sm-1 right">
+        <h1>#2</h1>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">    
+        <img src="http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX300.jpg" width="220" height="342">
+    </div>
+    <div class="col-sm-6 data">
+        <h2>The Shawshank Redemption</h2>
+        <h4>1994</h4>
+        <div class = "info">
+            <p><b>Director: </b>Frank Darabont</p>
+            <p><b>Starring: </b>Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler</p>
+            <p><b>Synopsis: </b>Andy Dufresne is a young and successful banker whose life changes drastically when he is convicted and sentenced to life imprisonment for the murder of his wife and her lover. Set in the 1940s, the film shows how Andy, with the help of his friend Red, the prison entrepreneur, turns out to be a most unconventional prisoner.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="movie-tile row" data-trailer-youtube-id="V_k8oaeHsnc" data-toggle="modal" data-target="#trailer">
+    <div class = "col-sm-1 right">
+        <h1>#3</h1>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">    
+        <img src="http://ia.media-imdb.com/images/M/MV5BMjMyODIwNzQ2N15BMl5BanBnXkFtZTgwMjI5ODcyMjE@._V1_SX300.jpg" width="220" height="342">
+    </div>
+    <div class="col-sm-6 data">
+        <h2>The Holy Mountain</h2>
+        <h4>1975</h4>
+        <div class = "info">
+            <p><b>Director: </b>Alejandro Jodorowsky</p>
+            <p><b>Starring: </b>Alejandro Jodorowsky, Horacio Salinas, Zamira Saunders, Juan Ferrara</p>
+            <p><b>Synopsis: </b>A Christlike figure wanders through bizarre, grotesque scenarios filled with religious and sacrilegious imagery. He meets a mystical guide who introduces him to seven wealthy and powerful people, each representing a planet in the Solar system. These seven, along with the protagonist, the guide and the guide's assistant, divest themselves of their worldly goods and form a group of nine who will seek the Holy Mountain, in order to displace the gods who live there and become immortal.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="movie-tile row" data-trailer-youtube-id="uPIEn0M8su0" data-toggle="modal" data-target="#trailer">
+    <div class = "col-sm-1 right">
+        <h1>#4</h1>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">    
+        <img src="http://ia.media-imdb.com/images/M/MV5BMTQwMTA5MzI1MF5BMl5BanBnXkFtZTcwMzY5Mzg3OA@@._V1_SX300.jpg" width="220" height="342">
+    </div>
+    <div class="col-sm-6 data">
+        <h2>Forrest Gump</h2>
+        <h4>1994</h4>
+        <div class = "info">
+            <p><b>Director: </b>Robert Zemeckis</p>
+            <p><b>Starring: </b>Tom Hanks, Rebecca Williams, Sally Field, Michael Conner Humphreys</p>
+            <p><b>Synopsis: </b>Forrest Gump is a simple man with a low I.Q. but good intentions. He is running through childhood with his best and only friend Jenny. His 'mama' teaches him the ways of life and leaves him to choose his destiny. Forrest joins the army for service in Vietnam, finding new friends called Dan and Bubba, he wins medals, creates a famous shrimp fishing fleet, inspires people to jog, starts a ping-pong craze, create the smiley, write bumper stickers and songs, donating to people and meeting the president several times. However, this is all irrelevant to Forrest who can only think of his childhood sweetheart Jenny Curran. Who has messed up her life. Although in the end all he wants to prove is that anyone can love anyone.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="movie-tile row" data-trailer-youtube-id="wZBfmBvvotE" data-toggle="modal" data-target="#trailer">
+    <div class = "col-sm-1 right">
+        <h1>#5</h1>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">    
+        <img src="http://ia.media-imdb.com/images/M/MV5BMjE0ODk2NjczOV5BMl5BanBnXkFtZTYwNDQ0NDg4._V1_SX300.jpg" width="220" height="342">
+    </div>
+    <div class="col-sm-6 data">
+        <h2>Pulp Fiction</h2>
+        <h4>1994</h4>
+        <div class = "info">
+            <p><b>Director: </b>Quentin Tarantino</p>
+            <p><b>Starring: </b>Tim Roth, Amanda Plummer, Laura Lovelace, John Travolta</p>
+            <p><b>Synopsis: </b>Jules Winnfield and Vincent Vega are two hitmen who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace. Wallace has also asked Vincent to take his wife Mia out a few days later when Wallace himself will be out of town. Butch Coolidge is an aging boxer who is paid by Wallace to lose his next fight. The lives of these seemingly unrelated people are woven together comprising of a series of funny, bizarre and uncalled-for incidents.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="movie-tile row" data-trailer-youtube-id="NSR7xRGBnOE" data-toggle="modal" data-target="#trailer">
+    <div class = "col-sm-1 right">
+        <h1>#6</h1>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">    
+        <img src="http://ia.media-imdb.com/images/M/MV5BMTIwNzQ3MDIxMV5BMl5BanBnXkFtZTcwMDIxMzUyMQ@@._V1_SX300.jpg" width="220" height="342">
+    </div>
+    <div class="col-sm-6 data">
+        <h2>Kill Bill: Vol. 2</h2>
+        <h4>2004</h4>
+        <div class = "info">
+            <p><b>Director: </b>Quentin Tarantino</p>
+            <p><b>Starring: </b>Vivica A. Fox, Ambrosia Kelley, Michael Parks, James Parks</p>
+            <p><b>Synopsis: </b>The murderous Bride is back and she is still continuing her vengeance quest against her ex-boss, Bill, and taking aim at Bill's younger brother Budd and Elle Driver, the only survivors from the squad of assassins who betrayed her four years earlier. It's all leading up to the ultimate confrontation with Bill, the Bride's former master and the man who ordered her execution!</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="movie-tile row" data-trailer-youtube-id="g8evyE9TuYk" data-toggle="modal" data-target="#trailer">
+    <div class = "col-sm-1 right">
+        <h1>#7</h1>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">    
+        <img src="http://ia.media-imdb.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_SX300.jpg" width="220" height="342">
+    </div>
+    <div class="col-sm-6 data">
+        <h2>The Dark Knight Rises</h2>
+        <h4>2012</h4>
+        <div class = "info">
+            <p><b>Director: </b>Christopher Nolan</p>
+            <p><b>Starring: </b>Christian Bale, Gary Oldman, Tom Hardy, Joseph Gordon-Levitt</p>
+            <p><b>Synopsis: </b>Despite his tarnished reputation after the events of The Dark Knight, in which he took the rap for Dent's crimes, Batman feels compelled to intervene to assist the city and its police force which is struggling to cope with Bane's plans to destroy the city.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="movie-tile row" data-trailer-youtube-id="_d0hEzXrWT4" data-toggle="modal" data-target="#trailer">
+    <div class = "col-sm-1 right">
+        <h1>#8</h1>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">    
+        <img src="http://ia.media-imdb.com/images/M/MV5BMTk4NjQwNTc0OV5BMl5BanBnXkFtZTYwOTQzNTA3._V1_SX300.jpg" width="220" height="342">
+    </div>
+    <div class="col-sm-6 data">
+        <h2>Fear and Loathing in Las Vegas</h2>
+        <h4>1998</h4>
+        <div class = "info">
+            <p><b>Director: </b>Terry Gilliam</p>
+            <p><b>Starring: </b>Johnny Depp, Benicio Del Toro, Tobey Maguire, Ellen Barkin</p>
+            <p><b>Synopsis: </b>The big-screen version of Hunter S. Thompson's seminal psychedelic classic about his road trip across Western America as he and his large Samoan lawyer searched desperately for the "American dream"... they were helped in large part by the huge amount of drugs and alcohol kept in their convertible, The Red Shark.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="movie-tile row" data-trailer-youtube-id="q8DIm_47xPU" data-toggle="modal" data-target="#trailer">
+    <div class = "col-sm-1 right">
+        <h1>#9</h1>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">    
+        <img src="http://ia.media-imdb.com/images/M/MV5BMTgxMTI1ODYyOV5BMl5BanBnXkFtZTYwNjQyOTI3._V1_SX300.jpg" width="220" height="342">
+    </div>
+    <div class="col-sm-6 data">
+        <h2>High Fidelity</h2>
+        <h4>2000</h4>
+        <div class = "info">
+            <p><b>Director: </b>Stephen Frears</p>
+            <p><b>Starring: </b>John Cusack, Iben Hjejle, Todd Louiso, Jack Black</p>
+            <p><b>Synopsis: </b>High Fidelity follows the 'mid-life' crisis of Rob, a thirty-something record-store owner who must face the undeniable facts - he's growing up. In a hilarious homage to the music scene, Rob and the wacky, offbeat clerks that inhabit his store expound on the intricacies of life and song all the while trying to succeed in their adult relationships. Are they listening to pop music because they are miserable? Or are they miserable because they listen to pop music? This romantic comedy provides a whimsical glimpse into the male view of the affairs of the heart.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="movie-tile row" data-trailer-youtube-id="XYGzRB4Pnq8" data-toggle="modal" data-target="#trailer">
+    <div class = "col-sm-1 right">
+        <h1>#10</h1>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">    
+        <img src="http://ia.media-imdb.com/images/M/MV5BMTUxNzc0OTIxMV5BMl5BanBnXkFtZTgwNDI3NzU2NDE@._V1_SX300.jpg" width="220" height="342">
+    </div>
+    <div class="col-sm-6 data">
+        <h2>Ex Machina</h2>
+        <h4>2015</h4>
+        <div class = "info">
+            <p><b>Director: </b>Alex Garland</p>
+            <p><b>Starring: </b>Domhnall Gleeson, Corey Johnson, Oscar Isaac, Alicia Vikander</p>
+            <p><b>Synopsis: </b>Caleb, a 26 year old coder at the world's largest internet company, wins a competition to spend a week at a private mountain retreat belonging to Nathan, the reclusive CEO of the company. But when Caleb arrives at the remote location he finds that he will have to participate in a strange and fascinating experiment in which he must interact with the world's first true artificial intelligence, housed in the body of a beautiful robot girl.</p>
+        </div>
+    </div>
+</div>
+
+    </div>
+  </body>
+</html>
