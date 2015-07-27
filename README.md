@@ -4,6 +4,12 @@ This is a python project I created for the Udacity Full Stack Web Developer Nano
 
 This utilizes the OMDb (Open Movie Database) API to get movie information based on a supplied movie title.  This allows me to write less code and expend less effort copying and pasting all the fields for my list of movies.  Unfortunately as of today the API doesn't include a link to a trailer so that must be provided seperately for each film.
 
+## Usage
+
+To use run `entertainment_center.py`.
+
+### Adding movies
+
 To add a movie simply add a new movie object to `entertainment_center.py`, like this:
 ```
 my_movie_object = media.Movie("Your Favourite Movie's Title","http://youtubeurl")
